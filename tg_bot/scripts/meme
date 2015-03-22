@@ -1,0 +1,27 @@
+case $1 in
+list)
+  JSON=`curl 'https://api.imgflip.com/get_memes' -H 'pragma: no-cache' -H 'accept-encoding: gzip, deflate, sdch' -H 'accept-language: en-US,en;q=0.8,ms;q=0.6' -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.89 Safari/537.36' -H 'accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8' -H 'cache-control: no-cache' -H 'cookie: __cfduid=dd663b0cda928256d822a595b8f0b568a1426822743; PHPSESSID=ff5f58a752aef6ca3f7c68a500bbcd21; __utma=71379083.268984442.1426822744.1426826604.1426987413.3; __utmb=71379083.1.10.1426987413; __utmc=71379083; __utmz=71379083.1426987413.3.3.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided)' --compressed`
+  echo $JSON | jq -r '.data.memes | .[] | .id + ", " + .name'
+  ;;
+caption)
+  TS=`date +%s`
+  curl 'https://api.imgflip.com/caption_image' \
+  -H 'pragma: no-cache' -H 'accept-encoding: gzip, deflate, sdch' \
+  -H 'accept-language: en-US,en;q=0.8,ms;q=0.6' \
+  -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.89 Safari/537.36' \
+  -H 'accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8' \
+  -H 'cache-control: no-cache' \
+  -H 'cookie: __cfduid=dd663b0cda928256d822a595b8f0b568a1426822743; PHPSESSID=ff5f58a752aef6ca3f7c68a500bbcd21; __utma=71379083.268984442.1426822744.1426826604.1426987413.3; __utmb=71379083.1.10.1426987413; __utmc=71379083; __utmz=71379083.1426987413.3.3.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided)' \
+  --data "template_id=$2&username=PiABH&password=raspiabh&text0=${3//_/ }&text1=${4//_/ }" \
+  --compressed > /tmp/meme_$TS.json 2> /dev/null
+  URL=`cat /tmp/meme_$TS.json | jq -r '.data.url'`
+  rm -f /tmp/meme_$TS.json
+  IMGFILE="/tmp/meme_$5_$TS.jpg"
+  wget $URL -O $IMGFILE  > /dev/null 2>&1
+  echo $IMGFILE
+  ;;
+*)
+  echo "Unknown Command. Exit"
+  exit 1
+  ;;
+esac

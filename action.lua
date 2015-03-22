@@ -38,6 +38,21 @@ end
 function on_get_difference_end()
 end
 
+function send_ph()
+  for index, filename in pairs(scandir('/tmp')) do
+    path,file,extension = splitfilename(filename)
+    if extension == 'jpg' then
+      tab = explode("_", file)
+      target = tab[2]
+      timestamp = tonumber(string.sub(tab[3], 0, -5))
+      if timestamp > ts_meme then
+        send_photo(target, "/tmp/"..file, cb_ok, false)
+        ts_meme = timestamp
+      end
+    end
+  end
+end
+
 function cron()
   --do something
   postpone (cron, false, 1.0)
