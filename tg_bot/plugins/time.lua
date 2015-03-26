@@ -9,6 +9,7 @@ return function(msg)
 	  else
         searchq = args[2]
       end
+      searchq = string.gsub(searchq, "%s", "_")
 
       curr_time = os.time()
       try = os.execute('wget -qO- http://www.thetimenow.com/clock/'..searchq..' | egrep "h1|main_time|main_date" | sed -e "s/<[^>]*[>]//g" -e "s/^[ \t]*//" -e "s/&nbsp;//g" > '..TMP_PATH..'/time'..curr_time..'.out')

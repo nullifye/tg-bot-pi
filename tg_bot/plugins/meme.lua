@@ -1,30 +1,42 @@
 return function(msg)
   cmd = "pi:meme"
   if args[1]==cmd then
-    local command, iid, text1, text2, outp
-    if #args == 5 and args[2] == "caption" then
-      command = args[2]
-      iid = args[3]
-      text1 = args[4]
-      text2 = args[5]
-    elseif #args == 2 and args[2] == "list" then
-      command = args[2]
+    if (#args == 1 or #args > 4) then
+      send_msg (replyto(msg), "usage: pi:meme list\nusage: pi:meme <TEMPLATE> <TOP-TEXT> [<BOTTOM-TEXT>]", ok_cb, false)
     else
-      command = 'args_no_valid'
+      if #args == 2 then
+        if args[2]=='list' then
+          outp = 'TEMPLATE:\n'
+          for key,value in pairs(meme) do
+            outp=outp..'- '..key..'\n'
+          end
+        else
+          outp = "usage: pi:meme list"
+        end
+        send_msg (replyto(msg), outp, ok_cb, false)
+        return true
+      end
+
+      if meme[args[2]]~=nil then
+        args[2] = meme[args[2]]
+      end
+
+      args[4] = args[4] or " "
+
+      local replacements = {
+        ["&" ] = '%26', 
+        ["%" ] = '%25'
+      }
+      args[3] = string.gsub(args[3], '[&<>\n]', replacements)
+      args[4] = string.gsub(args[4], '[&<>\n]', replacements)
+
+      curr_time = os.time()
+      try = os.execute('wget -qO- https://api.imgflip.com/caption_image --post-data "template_id='..args[2]..'&username=PiABH&password=raspiabh&text0='..args[3]..'&text1='..args[4]..'" | grep -Po \'"http:.*?"\' | sed -e "s/\\"//g" | xargs -n 1 curl -so '..TMP_PATH..'/meme'..curr_time..'.jpg')
+
+      if try then
+        send_photo (replyto(msg), TMP_PATH.."/meme"..curr_time..".jpg", ok_cb, false)
+      end
     end
-
-    if command == 'args_no_valid' then
-      outp = 'usage: pi:meme list\npi:meme caption <IID> <TEXT_TOP> <TEXT_BOTTOM>'
-    elseif command == 'list' then
-      outp = exec(HOME.."/scripts/meme list")
-    elseif command == 'caption' then
-      imgfile = exec(HOME.."/scripts/meme caption "..iid.." "..text1..
-        " "..text2.." "..replyto(msg))
-      outp = ""
-      postpone (send_ph, false, 3.0)
-    end 
-
-    send_msg (replyto(msg), outp, ok_cb, false)
     return true
   end
 end
