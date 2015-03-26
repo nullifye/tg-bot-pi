@@ -18,6 +18,7 @@ telegram-cli -W -s <path/to/script/action.lua>
 | zzz.ramusg.lua     | pi:ramusg | admin only |
 | zzz.uptime.lua | pi:uptime | admin only |
 | currency.lua | pi:$ | |
+| list.lua | pi:list | |
 | myid.lua | pi:myid | |
 | poslaju.lua | pi:poslaju | |
 | time.lua | pi:time | |
