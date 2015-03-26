@@ -5,3 +5,4 @@ HOME = '/home/pi/tg_bot'
 TMP_PATH = '/tmp'
 
 ts_spr = pitime
+ts_meme = pitime
