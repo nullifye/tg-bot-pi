@@ -10,6 +10,7 @@ return function(msg)
       pi:meme
       pi:myid
       pi:poslaju
+      pi:quran
       pi:spr
       pi:time
     * pi:reload
