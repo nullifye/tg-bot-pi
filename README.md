@@ -23,5 +23,6 @@ telegram-cli -W -s <path/to/script/action.lua>
 | meme.lua | pi:meme | |
 | myid.lua | pi:myid | |
 | poslaju.lua | pi:poslaju | |
+| quran.lua | pi:quran | |
 | time.lua | pi:time | |
 | ... | | |
