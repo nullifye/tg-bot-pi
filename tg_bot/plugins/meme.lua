@@ -2,7 +2,7 @@ return function(msg)
   cmd = "pi:meme"
   if args[1]==cmd then
     if (#args == 1 or #args > 4) then
-      send_msg (replyto(msg), "usage: pi:meme list\nusage: pi:meme <TEMPLATE> <TOP-TEXT> [<BOTTOM-TEXT>]", ok_cb, false)
+      send_msg (target, "usage: pi:meme list\nusage: pi:meme <TEMPLATE> <TOP-TEXT> [<BOTTOM-TEXT>]", ok_cb, false)
     else
       if #args == 2 then
         if args[2]=='list' then
@@ -13,7 +13,7 @@ return function(msg)
         else
           outp = "usage: pi:meme list"
         end
-        send_msg (replyto(msg), outp, ok_cb, false)
+        send_msg (target, outp, ok_cb, false)
         return true
       end
 
@@ -34,7 +34,7 @@ return function(msg)
       try = os.execute('wget -qO- https://api.imgflip.com/caption_image --post-data "template_id='..args[2]..'&username=PiABH&password=raspiabh&text0='..args[3]..'&text1='..args[4]..'" | grep -Po \'"http:.*?"\' | sed -e "s/\\"//g" | xargs -n 1 curl -so '..TMP_PATH..'/meme'..curr_time..'.jpg')
 
       if try then
-        send_photo (replyto(msg), TMP_PATH.."/meme"..curr_time..".jpg", ok_cb, false)
+        send_photo (target, TMP_PATH.."/meme"..curr_time..".jpg", ok_cb, false)
       end
     end
     return true

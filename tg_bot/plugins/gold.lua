@@ -2,12 +2,12 @@ return function(msg)
   cmd = "pi:gold"
   if args[1]==cmd then
     if (#args == 1 or #args > 3) then
-      send_msg (replyto(msg), "usage: pi:gold 24h|3d|30d|6m|1y|2y|5y|10y [myr|usd]", ok_cb, false)
+      send_msg (target, "usage: pi:gold 24h|3d|30d|6m|1y|2y|5y|10y [myr|usd]", ok_cb, false)
       return true
     end
 
     if gold[args[2]]==nil then
-      send_msg (replyto(msg), "(pi:gold) '"..args[2].."' is INVALID", ok_cb, false)
+      send_msg (target, "(pi:gold) '"..args[2].."' is INVALID", ok_cb, false)
       return true
     end
 
@@ -21,7 +21,7 @@ return function(msg)
     try = os.execute('curl http://goldprice.org/'..args[2]..args[3]..'.png -so '..TMP_PATH..'/gold'..curr_time..'.png')
 
     if try then
-      send_photo (replyto(msg), TMP_PATH.."/gold"..curr_time..".png", ok_cb, false)
+      send_photo (target, TMP_PATH.."/gold"..curr_time..".png", ok_cb, false)
     end
     return true
   end

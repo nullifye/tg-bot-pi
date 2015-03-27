@@ -17,7 +17,7 @@ return function(msg)
     * pi:ramusg
     * pi:uptime
     ]]
-    send_msg (replyto(msg), outp, ok_cb, false)
+    send_msg (target, outp, ok_cb, false)
     return true
   end
 end

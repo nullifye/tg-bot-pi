@@ -21,7 +21,7 @@ return function(msg)
       outp = exec("wget -qO- 'http://www.google.com/finance/converter?a="..cV.."&from="..cF.."&to="..cT.."' |  sed '/res/!d;s/<[^>]*>//g'")
     end 
 
-    send_msg (replyto(msg), outp, ok_cb, false)
+    send_msg (target, outp, ok_cb, false)
     return true
   end
 end
