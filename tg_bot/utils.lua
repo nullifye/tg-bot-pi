@@ -42,6 +42,12 @@ function exec(cmd)
   return output
 end
 
+-- http://unix.stackexchange.com/questions/176249/checking-urls-for-http-code-200
+function http_code(url, codes)
+  statuscode = exec('curl -I -s "'..url..'" -o /dev/null -w "%{http_code}"')
+  return string.match(codes, statuscode) ~= nil
+end
+
 -- http://stackoverflow.com/a/28665686
 function getargs(text)
   local t = {}

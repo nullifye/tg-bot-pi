@@ -5,6 +5,7 @@ return function(msg)
     outp = [[
       PI: COMMANDS
       pi:$
+      pi:fbvid
       pi:gold
       pi:list
       pi:meme
