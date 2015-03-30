@@ -1,8 +1,8 @@
 return function(msg)
   cmd = "pi:quran"
   if args[1]==cmd then
-    if (#args == 1 or #args > 4) then
-      send_msg (target, "usage: pi:quran 1..114 [<AYAT>] [my|en]", ok_cb, false)
+    if (#args == 1 or #args > 5) then
+      send_msg (target, "usage: pi:quran 1..114 [<AYAT>] [my|en] [!]", ok_cb, false)
     elseif surah[args[2]] == nil then
 	  send_msg (target, "(pi:quran) invalid SURAH", ok_cb, false)
 	else
@@ -31,9 +31,19 @@ return function(msg)
 
 		    if getimg then
 		      send_photo (target, TMP_PATH.."/ayat"..curr_time..".png", ok_cb, false)
+
 			  tafseer = exec('cat '..TMP_PATH..'/quran'..curr_time..'.out | egrep "<p>" | sed -e "s/<[^>]*[>]//g"')
 			  tafseer = string.gsub(tafseer, "&quot;", "'")
 			  send_msg (target, tafseer, ok_cb, false)
+
+			  if args[5] == "!" then
+                audioname = string.format("%03d%03d", args[2], args[3])..".mp3"
+			    getaudio = os.execute('curl http://everyayah.com/data/Alafasy_64kbps/'..audioname..' -so '..TMP_PATH..'/'..curr_time..audioname)
+
+                if getaudio then
+		          send_audio (target, TMP_PATH..'/'..curr_time..audioname, ok_cb, false)
+			    end
+			  end
 		    end
 		  end
 		else
