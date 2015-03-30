@@ -48,6 +48,13 @@ function http_code(url, codes)
   return string.match(codes, statuscode) ~= nil
 end
 
+function filesize(myfile)
+  local f = assert(io.open( myfile , 'r' ))
+  output = f:seek('end')
+  f:close()
+  return output
+end
+
 -- http://stackoverflow.com/a/28665686
 function getargs(text)
   local t = {}

@@ -26,6 +26,12 @@ return function(msg)
       try = os.execute('wget -qO- http://www.fbdown.net/down.php --post-data="URL='..args[2]..'" | egrep "Download Video in " | sed -n \'s/.*href="\\([^"]*\\).*/\\1/p\' > '..TMP_PATH..'/fbvid'..curr_time..'.out')
 
       if try then
+	    -- check if file is empty
+		if filesize(TMP_PATH..'/fbvid'..curr_time..'.out') == 0 then
+          send_msg (target, "(pi:fbvid) this video might be PRIVATE (not public)", ok_cb, false)
+          return true
+		end
+
         vidlink = exec('cat '..TMP_PATH..'/fbvid'..curr_time..'.out | '..args[3])
         vidlink = string.gsub(vidlink, "\n", "") -- trim newline
 
@@ -34,6 +40,7 @@ return function(msg)
           getvid = os.execute('curl "'..vidlink..'" -so '..TMP_PATH..'/video'..curr_time..'.mp4')
 
           if getvid then
+		    send_msg (target, "(pi:fbvid) sending...", ok_cb, false)
 		    send_video (target, TMP_PATH.."/video"..curr_time..".mp4", ok_cb, false)
 		  end
 		else
