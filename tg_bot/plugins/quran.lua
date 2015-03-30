@@ -38,7 +38,7 @@ return function(msg)
 
 			  if args[5] == "!" then
                 audioname = string.format("%03d%03d", args[2], args[3])..".mp3"
-			    getaudio = os.execute('curl http://everyayah.com/data/Alafasy_64kbps/'..audioname..' -so '..TMP_PATH..'/'..curr_time..audioname)
+			    getaudio = os.execute('curl -s http://everyayah.com/data/Alafasy_64kbps/'..audioname..' -so '..TMP_PATH..'/'..curr_time..audioname)
 
                 if getaudio then
 		          send_audio (target, TMP_PATH..'/'..curr_time..audioname, ok_cb, false)

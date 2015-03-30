@@ -37,7 +37,7 @@ return function(msg)
 
         if args[4] == "!" then
 		  send_msg (target, "(pi:fbvid) processing... may take a moment", ok_cb, false)
-          getvid = os.execute('curl "'..vidlink..'" -so '..TMP_PATH..'/video'..curr_time..'.mp4')
+          getvid = os.execute('curl -s "'..vidlink..'" -so '..TMP_PATH..'/video'..curr_time..'.mp4')
 
           if getvid then
 		    send_msg (target, "(pi:fbvid) sending...", ok_cb, false)

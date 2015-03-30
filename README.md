@@ -26,4 +26,5 @@ telegram-cli -W -s <path/to/script/action.lua>
 | poslaju.lua | pi:poslaju | |
 | quran.lua | pi:quran | |
 | time.lua | pi:time | |
+| webshot.lua | pi:webshot | |
 | ... | | |

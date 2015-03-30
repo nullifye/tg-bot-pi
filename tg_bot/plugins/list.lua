@@ -14,6 +14,7 @@ return function(msg)
       pi:quran
       pi:spr
       pi:time
+      pi:webshot
     * pi:reload
     * pi:cputemp
     * pi:ramusg
