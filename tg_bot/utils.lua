@@ -113,8 +113,12 @@ function isadmin(msg)
   return msg.from.id == our_id
 end
 
-function onlyme(msg)
-  return msg.from.id == our_id and msg.to.id == our_id
+function onlytobot(msg)
+  return msg.to.id == our_id
+end
+
+function admintobot(msg)
+  return isadmin(msg) and onlytobot(msg)
 end
 
 function replyto(msg)
