@@ -14,7 +14,9 @@ telegram-cli -W -s <path/to/script/action.lua>
 | script      | command           | remarks  |
 | ------------- |:----------------| -----:|
 | __reload_plugins.lua | pi:reload | admin only |
+| zzz.boottime.lua | pi:boottime | admin only |
 | zzz.cputemp.lua     | pi:cputemp | admin only |
+| zzz.loadavg.lua     | pi:loadavg | admin only |
 | zzz.ramusg.lua     | pi:ramusg | admin only |
 | zzz.uptime.lua | pi:uptime | admin only |
 | currency.lua | pi:$ | |
