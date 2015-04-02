@@ -4,6 +4,8 @@ pitime = os.time()
 HOME = '/home/pi/tg_bot'
 TMP_PATH = '/tmp'
 
+math.randomseed(os.time())
+
 ts_spr = pitime
 
 meme = {}

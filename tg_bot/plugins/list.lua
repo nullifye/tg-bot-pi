@@ -5,6 +5,7 @@ return function(msg)
     outp = [[
       PI: COMMANDS
       pi:$
+      pi:9gag
       pi:fbvid
       pi:gold
       pi:list
@@ -16,9 +17,11 @@ return function(msg)
       pi:spr
       pi:time
       pi:webshot
-    * pi:reload
+    * pi:boottime
     * pi:cputemp
+    * pi:loadavg
     * pi:ramusg
+    * pi:reload
     * pi:uptime
     ]]
     send_msg (target, outp, ok_cb, false)
