@@ -8,6 +8,7 @@ return function(msg)
       pi:9gag
       pi:fbvid
       pi:gold
+      pi:gst
       pi:list
       pi:meme
       pi:myid
