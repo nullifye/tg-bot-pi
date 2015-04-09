@@ -9,7 +9,7 @@ function bot(msg)
     run = loaded_chunk()
 
     if run(msg) then
-	  mark_read(target, ok_cb, false)
+      mark_read(target, ok_cb, false)
       return
     end
   end

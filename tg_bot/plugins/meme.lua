@@ -2,7 +2,7 @@ return function(msg)
   cmd = "pi:meme"
   if args[1]==cmd then
     if (#args == 1 or #args > 4) then
-      send_msg (target, "usage: pi:meme list\nusage: pi:meme <TEMPLATE> <TOP-TEXT> [<BOTTOM-TEXT>]", ok_cb, false)
+      send_msg (target, "usage: "..cmd.." list\nusage: "..cmd.." <TEMPLATE> <TOP-TEXT> [<BOTTOM-TEXT>]", ok_cb, false)
     else
       if #args == 2 then
         if args[2]=='list' then
@@ -11,7 +11,7 @@ return function(msg)
             outp=outp..'- '..key..'\n'
           end
         else
-          outp = "usage: pi:meme list"
+          outp = "usage: "..cmd.." list"
         end
         send_msg (target, outp, ok_cb, false)
         return true

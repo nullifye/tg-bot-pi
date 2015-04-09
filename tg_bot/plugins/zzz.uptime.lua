@@ -2,7 +2,7 @@ return function(msg)
   cmd = "pi:uptime"
   if isadmin(msg) and command(msg,cmd) then
     myvar = exec("uptime | sed 's/^.\\+up\\ \\+\\([^,]*\\).*/\\1/g'")
-    send_msg (target, 'uptime='..myvar, ok_cb, false)
+    send_msg (target, "uptime="..myvar, ok_cb, false)
     return true
   end
 end

@@ -20,14 +20,14 @@ function vardump(value, depth, key)
     else
       print(spaces .."(metatable) ")
         value = mTable
-    end		
+    end
     for tableKey, tableValue in pairs(value) do
       vardump(tableValue, depth, tableKey)
     end
-  elseif type(value)	== 'function' or 
-      type(value)	== 'thread' or 
-      type(value)	== 'userdata' or
-      value		== nil
+  elseif type(value) == 'function' or 
+      type(value) == 'thread' or 
+      type(value) == 'userdata' or
+      value == nil
   then
     print(spaces..tostring(value))
   else
@@ -63,17 +63,17 @@ function getargs(text)
   while true do
     local b = e+1
     b = text:find("%S",b)
-    if b==nil then break end
-    if text:sub(b,b)=="'" then
+    if b == nil then break end
+    if text:sub(b,b) == "'" then
       e = text:find("'",b+1)
       b = b+1
-    elseif text:sub(b,b)=='"' then
+    elseif text:sub(b,b) == '"' then
       e = text:find('"',b+1)
       b = b+1
     else
       e = text:find("%s",b+1)
     end
-    if e==nil then e=#text+1 end
+    if e == nil then e = #text+1 end
 
     t[#t+1] = text:sub(b,e-1)
 
@@ -86,7 +86,7 @@ function getargs(text)
 end
 
 function command(msg, cmd)
-  return msg.text==cmd
+  return msg.text == cmd
 end
 
 -- Lua implementation of PHP scandir function / http://stackoverflow.com/a/9102300

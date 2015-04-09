@@ -12,8 +12,8 @@ function on_msg_receive(msg)
   --if msg.out then
   --  return
   --end
-  if msg.text~=nil and -- not empty text
-     msg.date > pitime then -- not old msg
+  if msg.text ~= nil and -- not empty text
+     msg.date > PITIME then -- not old msg
     bot(msg)
   end
 end

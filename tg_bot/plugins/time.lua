@@ -2,11 +2,11 @@ return function(msg)
   cmd = "pi:time"
   if args[1]==cmd then
     if (#args == 1 or #args > 3) then
-      send_msg (target, "usage: pi:time <COUNTRY_NAME> [<CITY_NAME>]", ok_cb, false)
+      send_msg (target, "usage: "..cmd.." <COUNTRY_NAME> [<CITY_NAME>]", ok_cb, false)
     else
       if #args > 2 then
         searchq = args[2]..'/'..args[3]
-	  else
+      else
         searchq = args[2]
       end
       searchq = string.gsub(searchq, "%s", "_")

@@ -2,12 +2,12 @@ return function(msg)
   cmd = "pi:gold"
   if args[1]==cmd then
     if (#args == 1 or #args > 3) then
-      send_msg (target, "usage: pi:gold 24h|3d|30d|6m|1y|2y|5y|10y [myr|usd]", ok_cb, false)
+      send_msg (target, "usage: "..cmd.." 24h|3d|30d|6m|1y|2y|5y|10y [myr|usd]", ok_cb, false)
       return true
     end
 
     if gold[args[2]]==nil then
-      send_msg (target, "(pi:gold) '"..args[2].."' is INVALID", ok_cb, false)
+      send_msg (target, "("..cmd..") '"..args[2].."' is INVALID", ok_cb, false)
       return true
     end
 

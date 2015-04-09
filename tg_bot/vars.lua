@@ -1,12 +1,12 @@
 started = 0
 our_id = 0
-pitime = os.time()
+PITIME = os.time()
 HOME = '/home/pi/tg_bot'
 TMP_PATH = '/tmp'
 
 math.randomseed(os.time())
 
-ts_spr = pitime
+ts_spr = PITIME
 
 meme = {}
 meme.takemymoney=176908

@@ -5,49 +5,49 @@ return function(msg)
   cmd = "pi:fbvid"
   if args[1]==cmd then
     if (#args == 1 or #args > 4) then
-      send_msg (target, "usage: pi:fbvid <FB-VIDEO-URL> [low|hi] [!]", ok_cb, false)
-	else
-	  NOTFB = string.find(args[2], "facebook.com/video.php?v=", nil, true) == nil
+      send_msg (target, "usage: "..cmd.." <FB-VIDEO-URL> [low|hi] [!]", ok_cb, false)
+    else
+      NOTFB = string.find(args[2], "facebook.com/video.php?v=", nil, true) == nil
       if NOTFB or not http_code(args[2], "200 301 302") then
-	    send_msg (target, "(pi:fbvid) '"..args[2].."' is INVALID", ok_cb, false)
-		return true
-	  end
+        send_msg (target, "("..cmd..") '"..args[2].."' is INVALID", ok_cb, false)
+        return true
+      end
 
-	  if args[3] == "low" or args[3] == nil then
+      if args[3] == "low" or args[3] == nil then
         args[3] = "head -1"
-	  elseif args[3] == "hi" then
+      elseif args[3] == "hi" then
         args[3] = "tail -1"
-	  else
-	    send_msg (target, "(pi:fbvid) '"..args[3].."' is INVALID", ok_cb, false)
-		return true
-	  end
+      else
+        send_msg (target, "("..cmd..") '"..args[3].."' is INVALID", ok_cb, false)
+        return true
+      end
 
-	  curr_time = os.time()
+      curr_time = os.time()
       try = os.execute('wget -qO- http://www.fbdown.net/down.php --post-data="URL='..args[2]..'" | egrep "Download Video in " | sed -n \'s/.*href="\\([^"]*\\).*/\\1/p\' > '..TMP_PATH..'/fbvid'..curr_time..'.out')
 
       if try then
-	    -- check if file is empty
-		if filesize(TMP_PATH..'/fbvid'..curr_time..'.out') == 0 then
-          send_msg (target, "(pi:fbvid) this video might be PRIVATE (not public)", ok_cb, false)
+        -- check if file is empty
+        if filesize(TMP_PATH..'/fbvid'..curr_time..'.out') == 0 then
+          send_msg (target, "("..cmd..") this video might be PRIVATE (not public)", ok_cb, false)
           return true
-		end
+        end
 
         vidlink = exec('cat '..TMP_PATH..'/fbvid'..curr_time..'.out | '..args[3])
         vidlink = string.gsub(vidlink, "\n", "") -- trim newline
 
         if args[4] == "!" then
-		  send_msg (target, "(pi:fbvid) processing... may take a moment", ok_cb, false)
+          send_msg (target, "("..cmd..") processing... may take a moment", ok_cb, false)
           getvid = os.execute('curl -s "'..vidlink..'" -so '..TMP_PATH..'/video'..curr_time..'.mp4')
 
           if getvid then
-		    send_msg (target, "(pi:fbvid) sending...", ok_cb, false)
-		    send_video (target, TMP_PATH.."/video"..curr_time..".mp4", ok_cb, false)
-		  end
-		else
+            send_msg (target, "("..cmd..") sending...", ok_cb, false)
+            send_video (target, TMP_PATH.."/video"..curr_time..".mp4", ok_cb, false)
+          end
+        else
           send_msg (target, "📥 Download link\n"..vidlink, ok_cb, false)
         end
       end
     end
-	return true
+    return true
   end
 end
