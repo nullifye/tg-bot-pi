@@ -13,7 +13,7 @@ telegram-cli -W -s <path/to/script/action.lua>
 ## plugins
 | script      | command           | remarks  |
 | ------------- |:----------------| -----:|
-| __reload_plugins.lua | pi:reload | admin only |
+| 000.reload_plugins.lua | pi:reload | admin only |
 | zzz.boottime.lua | pi:boottime | admin only |
 | zzz.cputemp.lua     | pi:cputemp | admin only |
 | zzz.loadavg.lua     | pi:loadavg | admin only |
@@ -23,7 +23,9 @@ telegram-cli -W -s <path/to/script/action.lua>
 | 9gag.lua | pi:9gag | |
 | fbvid.lua | pi:fbvid | |
 | gold.lua | pi:gold | |
+| gst.lua | pi:gst | |
 | list.lua | pi:list | |
+| mbsa.lua | pi:mbsa | |
 | meme.lua | pi:meme | |
 | myid.lua | pi:myid | |
 | poslaju.lua | pi:poslaju | |
