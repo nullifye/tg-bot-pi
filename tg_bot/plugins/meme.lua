@@ -6,9 +6,9 @@ return function(msg)
     else
       if #args == 2 then
         if args[2]=='list' then
-          outp = 'TEMPLATE:\n'
-          for key,value in pairs(meme) do
-            outp=outp..'- '..key..'\n'
+          outp = "TEMPLATE:\n"
+          for key,value in sort_pairs(meme) do
+            outp=outp..key.."   "
           end
         else
           outp = "usage: "..cmd.." list"
