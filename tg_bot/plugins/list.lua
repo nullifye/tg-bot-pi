@@ -10,6 +10,7 @@ return function(msg)
       pi:gold
       pi:gst
       pi:list
+      pi:kastam
       pi:mbsa
       pi:meme
       pi:myid
