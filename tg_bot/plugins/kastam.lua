@@ -1,5 +1,5 @@
 return function(msg)
-  cmd = "pi:gst"
+  cmd = "pi:kastam"
   if args[1]==cmd then
     if #args == 2 then
       curr_ptt = os.time()
@@ -9,7 +9,7 @@ return function(msg)
 
       if try then
         if filesize(TMP_PATH..'/gst'..curr_ptt..'.out') == 0 then
-          send_msg (target, "("..cmd..") incorrect GST number", ok_cb, false)
+          send_msg (target, "("..cmd..") API error", ok_cb, false)
           return true
         end
 
