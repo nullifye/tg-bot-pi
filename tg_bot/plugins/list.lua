@@ -9,8 +9,8 @@ return function(msg)
       pi:fbvid
       pi:gold
       pi:gst
-      pi:list
       pi:kastam
+      pi:list
       pi:mbsa
       pi:meme
       pi:myid

@@ -24,8 +24,8 @@ telegram-cli -W -s <path/to/script/action.lua>
 | fbvid.lua | pi:fbvid | | ![http://i.imgur.com/3JiT5eO.png](http://i.imgur.com/3JiT5eO.png) |
 | gold.lua | pi:gold | | ![http://i.imgur.com/X0Ei5yE.png](http://i.imgur.com/X0Ei5yE.png) |
 | gst.lua | pi:gst | |  |
-| list.lua | pi:list | | ![http://i.imgur.com/kYXNC6I.png](http://i.imgur.com/kYXNC6I.png) |
 | kastam.lua | pi:kastam | |  |
+| list.lua | pi:list | | ![http://i.imgur.com/kYXNC6I.png](http://i.imgur.com/kYXNC6I.png) |
 | mbsa.lua | pi:mbsa | | ![http://i.imgur.com/yykP2XA.png](http://i.imgur.com/yykP2XA.png) |
 | meme.lua | pi:meme | | ![http://i.imgur.com/kgEJKQg.png](http://i.imgur.com/kgEJKQg.png) |
 | myid.lua | pi:myid | | ![http://i.imgur.com/LmWhmwL.png](http://i.imgur.com/LmWhmwL.png) |
