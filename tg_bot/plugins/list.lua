@@ -17,6 +17,7 @@ return function(msg)
       pi:poslaju
       pi:qr
       pi:quran
+      pi:shorten
       pi:spr
       pi:time
       pi:webshot
