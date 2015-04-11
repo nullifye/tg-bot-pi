@@ -35,5 +35,5 @@ telegram-cli -W -s <path/to/script/action.lua>
 | shorten.lua | pi:shorten | |  |
 | time.lua | pi:time | | ![http://i.imgur.com/2z7M1bU.png](http://i.imgur.com/2z7M1bU.png) |
 | webshot.lua | pi:webshot | | ![http://i.imgur.com/wFsbPJp.png](http://i.imgur.com/wFsbPJp.png) |
-| yt.lua | pi:yt | |  |
+| youtube.lua | pi:yt | |  |
 | ... | | | |
