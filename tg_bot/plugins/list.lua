@@ -21,6 +21,7 @@ return function(msg)
       pi:spr
       pi:time
       pi:webshot
+      pi:yt
     * pi:boottime
     * pi:cputemp
     * pi:loadavg
