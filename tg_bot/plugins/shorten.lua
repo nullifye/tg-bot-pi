@@ -2,7 +2,7 @@
   cmd = "pi:shorten"
   if args[1]==cmd then
     if (#args == 1 or #args > 2) then
-      send_msg (target, "usage: "..cmd.." <URL>", ok_cb, false)
+      send_msg (target, "usage: "..cmd.." <LONG-URL>", ok_cb, false)
     else
       if not http_code(args[2], "200 301 302") then
         send_msg (target, "("..cmd..") check your URL", ok_cb, false)
