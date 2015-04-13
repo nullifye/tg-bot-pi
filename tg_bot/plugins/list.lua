@@ -6,6 +6,7 @@ return function(msg)
       PI: COMMANDS
       pi:$
       pi:9gag
+      pi:expand
       pi:fbvid
       pi:gold
       pi:gst
