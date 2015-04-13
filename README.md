@@ -21,7 +21,7 @@ telegram-cli -W -s <path/to/script/action.lua>
 | zzz.uptime.lua | pi:uptime | admin only | ![http://i.imgur.com/8dgZQNs.png](http://i.imgur.com/8dgZQNs.png) |
 | currency.lua | pi:$ | | ![http://i.imgur.com/n7rxLpB.png](http://i.imgur.com/n7rxLpB.png) |
 | 9gag.lua | pi:9gag | | ![http://i.imgur.com/s6fMWnd.png](http://i.imgur.com/s6fMWnd.png) |
-| expand.lua | pi:expand | |  |
+| expand.lua | pi:expand | | ![http://i.imgur.com/HEzMGGH.png](http://i.imgur.com/HEzMGGH.png) |
 | fbvid.lua | pi:fbvid | | ![http://i.imgur.com/3JiT5eO.png](http://i.imgur.com/3JiT5eO.png) |
 | gold.lua | pi:gold | | ![http://i.imgur.com/X0Ei5yE.png](http://i.imgur.com/X0Ei5yE.png) |
 | gst.lua | pi:gst | | ![http://i.imgur.com/L8tVaDh.png](http://i.imgur.com/L8tVaDh.png) |
@@ -33,8 +33,8 @@ telegram-cli -W -s <path/to/script/action.lua>
 | poslaju.lua | pi:poslaju | | ![http://i.imgur.com/IfPSp2w.png](http://i.imgur.com/IfPSp2w.png) |
 | qr.lua | pi:qr | | ![http://i.imgur.com/auFy62H.png](http://i.imgur.com/auFy62H.png) |
 | quran.lua | pi:quran | | ![http://i.imgur.com/BCRS939.png](http://i.imgur.com/BCRS939.png) |
-| shorten.lua | pi:shorten | |  |
+| shorten.lua | pi:shorten | | ![http://i.imgur.com/7mAVLGT.png](http://i.imgur.com/7mAVLGT.png) |
 | time.lua | pi:time | | ![http://i.imgur.com/2z7M1bU.png](http://i.imgur.com/2z7M1bU.png) |
 | webshot.lua | pi:webshot | | ![http://i.imgur.com/wFsbPJp.png](http://i.imgur.com/wFsbPJp.png) |
-| youtube.lua | pi:yt | |  |
+| youtube.lua | pi:yt | | ![http://i.imgur.com/hkXKjAq.png](http://i.imgur.com/hkXKjAq.png) |
 | ... | | | |
