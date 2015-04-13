@@ -4,8 +4,8 @@
 return function(msg)
   cmd = "pi:fbvid"
   if args[1]==cmd then
-    if (#args == 1 or #args > 4) then
-      send_msg (target, "usage: "..cmd.." <FB-VIDEO-URL> [low|hi] [!]", ok_cb, false)
+    if (#args == 1 or #args > 3) then
+      send_msg (target, "usage: "..cmd.." <FB-VIDEO-URL> [!]", ok_cb, false)
     else
       NOTFB = string.find(args[2], "facebook.com/video.php?v=", nil, true) == nil
       if NOTFB or not http_code(args[2], "200 301 302") then
@@ -13,17 +13,10 @@ return function(msg)
         return true
       end
 
-      if args[3] == "low" or args[3] == nil then
-        args[3] = "head -1"
-      elseif args[3] == "hi" then
-        args[3] = "tail -1"
-      else
-        send_msg (target, "("..cmd..") '"..args[3].."' is INVALID", ok_cb, false)
-        return true
-      end
+      args[2] = string.gsub(args[2], "https://www.", "https://m.") -- switch to mobile fb
 
       curr_time = os.time()
-      try = os.execute('wget -qO- http://www.fbdown.net/down.php --post-data="URL='..args[2]..'" | egrep "Download Video in " | sed -n \'s/.*href="\\([^"]*\\).*/\\1/p\' > '..TMP_PATH..'/fbvid'..curr_time..'.out')
+      try = os.execute('wget -qO- "'..args[2]..'" | grep -oh -e \'href="/video_redirect/.*target="_blank"><img\' | grep -ohe \'src=.*&amp;s\' | sed \'s/src=//\' | sed \'s/&amp;s//\' > '..TMP_PATH..'/fbvid'..curr_time..'.out')
 
       if try then
         -- check if file is empty
@@ -32,10 +25,11 @@ return function(msg)
           return true
         end
 
-        vidlink = exec('cat '..TMP_PATH..'/fbvid'..curr_time..'.out | '..args[3])
+        vidlink = exec('cat '..TMP_PATH..'/fbvid'..curr_time..'.out')
         vidlink = string.gsub(vidlink, "\n", "") -- trim newline
+        vidlink = decodeURI(vidlink)
 
-        if args[4] == "!" then
+        if args[3] == "!" then
           send_msg (target, "("..cmd..") processing... may take a moment", ok_cb, false)
           getvid = os.execute('curl -s "'..vidlink..'" -so '..TMP_PATH..'/video'..curr_time..'.mp4')
 
