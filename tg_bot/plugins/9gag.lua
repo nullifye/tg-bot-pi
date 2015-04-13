@@ -15,6 +15,7 @@ return function(msg)
         gettitle = exec('cat '..TMP_PATH..'/9gag'..curr_time..'.out | sed -n \'s/.*alt="\\([^"]*\\).*/\\1/p\'')
         gettitle = string.gsub(gettitle, "&#039;", "'")
         gettitle = string.gsub(gettitle, "&quot;", "\"")
+        gettitle = string.gsub(gettitle, "&amp;", "&")
         send_msg (target, ""..gettitle, ok_cb, false)
 
         imglink = exec('cat '..TMP_PATH..'/9gag'..curr_time..'.out | sed -n \'s/.*data-image="\\([^"]*\\).*/\\1/p\'') -- gif
