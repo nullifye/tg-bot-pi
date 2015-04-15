@@ -9,9 +9,9 @@ function on_msg_receive(msg)
   if started == 0 then
     return
   end
-  --if msg.out then
-  --  return
-  --end
+  if msg.out then
+    return
+  end
   if msg.text ~= nil and -- not empty text
      msg.date > PITIME then -- not old msg
     bot(msg)

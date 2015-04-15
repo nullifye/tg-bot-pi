@@ -136,7 +136,7 @@ function reload_plugins()
 end
 
 function isadmin(msg)
-  return msg.from.id == our_id
+  return string.match(ADMINLIST, msg.from.id) ~= nil
 end
 
 function onlytobot(msg)

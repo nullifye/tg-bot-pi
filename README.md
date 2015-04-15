@@ -4,6 +4,7 @@ Bot for Telegram (tg)
 ## requirements
 * Need to install [telegram-cli](https://github.com/vysheng/tg) first.
 * Change absolute path for **HOME** and **TMP_PATH**
+* Set your telegram id in **ADMINLIST**
 
 ## usage
 ```

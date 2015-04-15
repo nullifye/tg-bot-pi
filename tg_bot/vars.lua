@@ -1,6 +1,7 @@
 started = 0
 our_id = 0
 PITIME = os.time()
+ADMINLIST = 'YOUR-ID'
 HOME = '/home/pi/tg_bot'
 TMP_PATH = '/tmp'
 
