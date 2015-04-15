@@ -39,3 +39,9 @@ telegram-cli -W -s <path/to/script/action.lua>
 | webshot.lua | pi:webshot | | ![http://i.imgur.com/wFsbPJp.png](http://i.imgur.com/wFsbPJp.png) |
 | youtube.lua | pi:yt | | ![http://i.imgur.com/hkXKjAq.png](http://i.imgur.com/hkXKjAq.png) |
 | ... | | | |
+
+## environment
+Tested on Raspbian only
+
+## chat with bot
+Feel free to try the bot [via Telegram](http://telegram.me/MYbot) or manually search **@MYbot** in Telegram app.
