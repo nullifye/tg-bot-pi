@@ -12,10 +12,12 @@ return function(msg)
       searchq = string.gsub(searchq, "%s", "_")
 
       curr_time = os.time()
-      try = os.execute('wget -qO- http://www.thetimenow.com/clock/'..searchq..' | egrep "h1|main_time|main_date" | sed -e "s/<[^>]*[>]//g" -e "s/^[ \t]*//" -e "s/&nbsp;//g" > '..TMP_PATH..'/time'..curr_time..'.out')
+      try = os.execute('wget -qO- http://www.thetimenow.com/clock/'..searchq..' --connect-timeout='..TIMEOUT..' | egrep "h1|main_time|main_date" | sed -e "s/<[^>]*[>]//g" -e "s/^[ \t]*//" -e "s/&nbsp;//g" > '..TMP_PATH..'/time'..curr_time..'.out')
 
       if try then
         send_text (target, TMP_PATH.."/time"..curr_time..".out", ok_cb, false)
+      else
+        send_text (target, "("..cmd..") server take too long to respond.\ntry again", ok_cb, false)
       end
     end
     return true

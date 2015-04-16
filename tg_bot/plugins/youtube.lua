@@ -25,7 +25,7 @@ return function(msg)
       searchq = table.concat(args, "+")
 
       curr_time = os.time()
-      try = os.execute('wget -qO- "https://www.youtube.com/results?filters=video&search_query='..searchq..'" --no-check-certificate | sed -n \'/<div class="yt-lockup-content">/,/<\\/div>/p\' | sed -n \'/<h3 class="yt-lockup-title"><a href="/,/<\\/h3>/p\' | grep -oP \'(?<=<h3 class="yt-lockup-title">).*(?=</h3)\' -m '..limit..' | awk -F\\" \'{print $8 "\\nhttps://www.youtube.com"$2" 🎬\\n"}\' > '..TMP_PATH..'/yt'..curr_time..'.out')
+      try = os.execute('wget -qO- "https://www.youtube.com/results?filters=video&search_query='..searchq..'" --connect-timeout='..TIMEOUT..' --no-check-certificate | sed -n \'/<div class="yt-lockup-content">/,/<\\/div>/p\' | sed -n \'/<h3 class="yt-lockup-title"><a href="/,/<\\/h3>/p\' | grep -oP \'(?<=<h3 class="yt-lockup-title">).*(?=</h3)\' -m '..limit..' | awk -F\\" \'{print $8 "\\nhttps://www.youtube.com"$2" 🎬\\n"}\' > '..TMP_PATH..'/yt'..curr_time..'.out')
 
       if try then
         -- check if file is empty
@@ -38,6 +38,8 @@ return function(msg)
         outp = string.gsub(outp, "&#39;", "'")
         outp = string.gsub(outp, "&amp;", "&")
         send_msg (target, outp, ok_cb, false)
+      else
+        send_text (target, "("..cmd..") server take too long to respond.\ntry again", ok_cb, false)
       end
     end
     return true

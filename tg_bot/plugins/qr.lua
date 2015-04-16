@@ -8,7 +8,7 @@ return function(msg)
       end
 
       curr_time = os.time()
-      try = os.execute('wget -qO- "http://qrcode.mutationevent.com/qr.php" --post-data="type='..args[2]..'&content='..args[3]..'&size=10&level=H" | sed -n \'s/.*src="\\([^"]*\\).*/\\1/p\' > '..TMP_PATH..'/qr'..curr_time..'.out')
+      try = os.execute('wget -qO- "http://qrcode.mutationevent.com/qr.php" --connect-timeout='..TIMEOUT..' --post-data="type='..args[2]..'&content='..args[3]..'&size=10&level=H" | sed -n \'s/.*src="\\([^"]*\\).*/\\1/p\' > '..TMP_PATH..'/qr'..curr_time..'.out')
 
       if try then
         qrlink = exec('cat '..TMP_PATH..'/qr'..curr_time..'.out')
@@ -18,6 +18,8 @@ return function(msg)
         if getqr then
           send_photo (target, TMP_PATH.."/qr"..curr_time..".png", ok_cb, false)
         end
+      else
+        send_text (target, "("..cmd..") server take too long to respond.\ntry again", ok_cb, false)
       end
     else
       send_msg (target, "usage: "..cmd.." text|url|phone <CONTENT>", ok_cb, false)

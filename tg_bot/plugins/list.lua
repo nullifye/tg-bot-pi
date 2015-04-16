@@ -1,7 +1,8 @@
 
 return function(msg)
-  cmd = "pi:list"
-  if command(msg,cmd) then
+  cmd0 = "pi:list"
+  cmd1 = "pi:help"
+  if command(msg,cmd0) or command(msg,cmd1) then
     outp = [[
       PI: COMMANDS
       pi:$

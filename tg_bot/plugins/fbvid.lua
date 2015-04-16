@@ -1,4 +1,4 @@
-﻿-- send_document, send_video fix!
+-- send_document, send_video fix!
 -- https://github.com/vysheng/tg/issues/428#issuecomment-79404788
 
 return function(msg)
@@ -7,9 +7,10 @@ return function(msg)
     if (#args == 1 or #args > 3) then
       send_msg (target, "usage: "..cmd.." <FB-VIDEO-URL> [!]", ok_cb, false)
     else
-      NOTFB = string.find(args[2], "facebook.com/video.php?v=", nil, true) == nil
+      NOTFB = (string.find(args[2], "facebook.com/video.php?v=", nil, true) == nil) and 
+              (string.find(args[2], "facebook.com/[%w%.]+/videos/%w+") == nil)
       if NOTFB or not http_code(args[2], "200 301 302") then
-        send_msg (target, "("..cmd..") '"..args[2].."' is INVALID", ok_cb, false)
+        send_msg (target, "("..cmd..") check your FB video URL", ok_cb, false)
         return true
       end
 

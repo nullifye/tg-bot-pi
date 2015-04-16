@@ -21,7 +21,7 @@ return function(msg)
           end
 
           curr_time = os.time()
-          try = os.execute('wget -qO- http://www.surah.my/'..args[2]..lang..' | sed -n \'/<div class="post" id="'..args[3]..'">/,/<\\/div>/p\' > '..TMP_PATH..'/quran'..curr_time..'.out')
+          try = os.execute('wget -qO- http://www.surah.my/'..args[2]..lang..' --connect-timeout='..TIMEOUT..' | sed -n \'/<div class="post" id="'..args[3]..'">/,/<\\/div>/p\' > '..TMP_PATH..'/quran'..curr_time..'.out')
 
           if try then
             evidence = exec('cat '..TMP_PATH..'/quran'..curr_time..'.out | egrep "img" | sed -e \'s/<img .*src=[\'"\'"\'"]//\' -e \'s/["\'"\'"\'].*$//\' -e \'/^$/ d\' -e "s/^[ \t]*//"')
@@ -45,6 +45,8 @@ return function(msg)
                 end
               end
             end
+          else
+            send_text (target, "("..cmd..") server take too long to respond.\ntry again", ok_cb, false)
           end
         else
           send_msg (target, outp, ok_cb, false)

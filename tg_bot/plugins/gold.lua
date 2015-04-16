@@ -18,10 +18,12 @@ return function(msg)
     end
 
     curr_time = os.time()
-    try = os.execute('curl http://goldprice.org/'..args[2]..args[3]..'.png -so '..TMP_PATH..'/gold'..curr_time..'.png')
+    try = os.execute('curl http://goldprice.org/'..args[2]..args[3]..'.png --connect-timeout '..TIMEOUT..' -so '..TMP_PATH..'/gold'..curr_time..'.png')
 
     if try then
       send_photo (target, TMP_PATH.."/gold"..curr_time..".png", ok_cb, false)
+    else
+      send_text (target, "("..cmd..") server take too long to respond.\ntry again", ok_cb, false)
     end
     return true
   end

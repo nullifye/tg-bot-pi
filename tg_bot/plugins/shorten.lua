@@ -10,7 +10,7 @@
       end
 
       curr_time = os.time()
-      try = os.execute('wget -qO- "https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyBnWXwtN1xjPU2xRwAGiIugbBkPMGBhpIA" --header=\'Content-Type: application/json\' --post-data=\'{"longUrl": "'..args[2]..'"}\' | grep -Po \'"id":.*?[^\\\\]",|},{\' | awk -F\'"[:] "\' \'{print "👉 " $2}\' | sed -e "s/\\",//"  > '..TMP_PATH..'/shorten'..curr_time..'.out')
+      try = os.execute('wget -qO- "https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyBnWXwtN1xjPU2xRwAGiIugbBkPMGBhpIA" --connect-timeout='..TIMEOUT..' --header=\'Content-Type: application/json\' --post-data=\'{"longUrl": "'..args[2]..'"}\' | grep -Po \'"id":.*?[^\\\\]",|},{\' | awk -F\'"[:] "\' \'{print "👉 " $2}\' | sed -e "s/\\",//"  > '..TMP_PATH..'/shorten'..curr_time..'.out')
 
       if try then
         -- check if file is empty
@@ -20,6 +20,8 @@
         end
 
         send_text (target, TMP_PATH..'/shorten'..curr_time..'.out', ok_cb, false)
+      else
+        send_text (target, "("..cmd..") server take too long to respond.\ntry again", ok_cb, false)
       end
     end
     return true

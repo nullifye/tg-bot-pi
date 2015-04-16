@@ -31,10 +31,12 @@ return function(msg)
       args[4] = string.gsub(args[4], '[&<>\n]', replacements)
 
       curr_time = os.time()
-      try = os.execute('wget -qO- https://api.imgflip.com/caption_image --post-data "template_id='..args[2]..'&username=PiABH&password=raspiabh&text0='..args[3]..'&text1='..args[4]..'" | grep -Po \'"http:.*?"\' | sed -e "s/\\"//g" | xargs -n 1 curl -so '..TMP_PATH..'/meme'..curr_time..'.jpg')
+      try = os.execute('wget -qO- https://api.imgflip.com/caption_image --connect-timeout='..TIMEOUT..' --post-data "template_id='..args[2]..'&username=PiABH&password=raspiabh&text0='..args[3]..'&text1='..args[4]..'" | grep -Po \'"http:.*?"\' | sed -e "s/\\"//g" | xargs -n 1 curl -so '..TMP_PATH..'/meme'..curr_time..'.jpg')
 
       if try then
         send_photo (target, TMP_PATH.."/meme"..curr_time..".jpg", ok_cb, false)
+      else
+        send_text (target, "("..cmd..") server take too long to respond.\ntry again", ok_cb, false)
       end
     end
     return true

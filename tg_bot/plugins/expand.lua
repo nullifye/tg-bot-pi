@@ -5,7 +5,7 @@
       send_msg (target, "usage: "..cmd.." <SHORTENED-URL>", ok_cb, false)
     else
       curr_time = os.time()
-      try = os.execute('curl -I -s --connect-timeout 3 "'..args[2]..'" -o /dev/null -w "%{redirect_url}" > '..TMP_PATH..'/expand'..curr_time..'.out')
+      try = os.execute('curl -I -s --connect-timeout '..TIMEOUT..' "'..args[2]..'" -o /dev/null -w "%{redirect_url}" > '..TMP_PATH..'/expand'..curr_time..'.out')
 
       if try then
         -- check if file is empty
