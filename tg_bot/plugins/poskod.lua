@@ -5,7 +5,7 @@ return function(msg)
       send_msg (target, "usage: "..cmd.." <AREA-NAME>", ok_cb, false)
     else
       curr_time = os.time()
-      try = os.execute('wget -qO- http://malaysiapostcode.com/search --post-data="keyword='..args[2]..'" | sed -n "/<tbody/,/<\/tbody>/p" | sed -e "s/<[^>]*[>]//g" -e "s/^[ \t]*//" -e "s/&nbsp;//g" | sed -e ":a;N;$!ba;s/\\r\\n\\r\\n/\\n/g" > '..TMP_PATH..'/poskod'..curr_time..'.out')
+      try = os.execute('wget -qO- http://malaysiapostcode.com/search --post-data="keyword='..args[2]..'" | sed -n "/<tbody/,/<\\/tbody>/p" | sed -e "s/<[^>]*[>]//g" -e "s/^[ \t]*//" -e "s/&nbsp;//g" | sed -e ":a;N;$!ba;s/\\r\\n\\r\\n/\\n/g" > '..TMP_PATH..'/poskod'..curr_time..'.out')
 
       if try then
         send_text (target, TMP_PATH.."/poskod"..curr_time..".out", ok_cb, false)
