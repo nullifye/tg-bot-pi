@@ -16,6 +16,7 @@ return function(msg)
       pi:mbsa
       pi:meme
       pi:myid
+      pi:poskod
       pi:poslaju
       pi:qr
       pi:quran

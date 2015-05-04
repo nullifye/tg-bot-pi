@@ -31,6 +31,7 @@ telegram-cli -W -s <path/to/script/action.lua>
 | mbsa.lua | pi:mbsa | | ![http://i.imgur.com/yykP2XA.png](http://i.imgur.com/yykP2XA.png) |
 | meme.lua | pi:meme | | ![http://i.imgur.com/kgEJKQg.png](http://i.imgur.com/kgEJKQg.png) |
 | myid.lua | pi:myid | | ![http://i.imgur.com/LmWhmwL.png](http://i.imgur.com/LmWhmwL.png) |
+| poskod.lua | pi:poskod | |  |
 | poslaju.lua | pi:poslaju | | ![http://i.imgur.com/IfPSp2w.png](http://i.imgur.com/IfPSp2w.png) |
 | qr.lua | pi:qr | | ![http://i.imgur.com/auFy62H.png](http://i.imgur.com/auFy62H.png) |
 | quran.lua | pi:quran | | ![http://i.imgur.com/BCRS939.png](http://i.imgur.com/BCRS939.png) |
