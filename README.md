@@ -20,6 +20,8 @@ telegram-cli -W -s <path/to/script/action.lua>
 | zzz.loadavg.lua     | pi:loadavg | admin only | ![http://i.imgur.com/mHiiLxu.png](http://i.imgur.com/mHiiLxu.png) |
 | zzz.ramusg.lua     | pi:ramusg | admin only | ![http://i.imgur.com/DFQEw24.png](http://i.imgur.com/DFQEw24.png) |
 | zzz.uptime.lua | pi:uptime | admin only | ![http://i.imgur.com/8dgZQNs.png](http://i.imgur.com/8dgZQNs.png) |
+| zzz.yourbot.lua | pi:bot | admin only |  |
+| zzz.yourcode.lua |  | admin only |  |
 | currency.lua | pi:$ | | ![http://i.imgur.com/n7rxLpB.png](http://i.imgur.com/n7rxLpB.png) |
 | 9gag.lua | pi:9gag | | ![http://i.imgur.com/s6fMWnd.png](http://i.imgur.com/s6fMWnd.png) |
 | expand.lua | pi:expand | | ![http://i.imgur.com/HEzMGGH.png](http://i.imgur.com/HEzMGGH.png) |
