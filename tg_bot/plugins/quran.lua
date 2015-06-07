@@ -24,6 +24,11 @@ return function(msg)
           try = os.execute('wget -qO- http://www.surah.my/'..args[2]..lang..' --connect-timeout='..TIMEOUT..' | sed -n \'/<div class="post" id="'..args[3]..'">/,/<\\/div>/p\' > '..TMP_PATH..'/quran'..curr_time..'.out')
 
           if try then
+            if filesize(TMP_PATH..'/quran'..curr_time..'.out') == 0 then
+              send_msg (target, "("..cmd..") service temporarily unavailable", ok_cb, false)
+              return true
+            end
+
             evidence = exec('cat '..TMP_PATH..'/quran'..curr_time..'.out | egrep "img" | sed -e \'s/<img .*src=[\'"\'"\'"]//\' -e \'s/["\'"\'"\'].*$//\' -e \'/^$/ d\' -e "s/^[ \t]*//"')
             evidence = string.gsub(evidence, "\n", "") -- trim newline
 
@@ -46,7 +51,7 @@ return function(msg)
               end
             end
           else
-            send_text (target, "("..cmd..") server take too long to respond.\ntry again", ok_cb, false)
+            send_text (target, "("..cmd..") server takes too long to respond.\ntry again", ok_cb, false)
           end
         else
           send_msg (target, outp, ok_cb, false)
