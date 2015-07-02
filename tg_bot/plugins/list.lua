@@ -11,6 +11,7 @@ return function(msg)
       pi:fbvid
       pi:gold
       pi:gst
+      pi:imei
       pi:kastam
       pi:list
       pi:mbsa
@@ -25,7 +26,6 @@ return function(msg)
       pi:time
       pi:webshot
       pi:yt
-    * pi:bot
     * pi:boottime
     * pi:cputemp
     * pi:loadavg
