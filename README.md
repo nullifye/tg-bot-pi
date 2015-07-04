@@ -24,6 +24,7 @@ telegram-cli -W -s <path/to/script/action.lua>
 | zzz.yourcode.lua |  | admin only |  |
 | currency.lua | pi:$ | | ![http://i.imgur.com/n7rxLpB.png](http://i.imgur.com/n7rxLpB.png) |
 | 9gag.lua | pi:9gag | | ![http://i.imgur.com/s6fMWnd.png](http://i.imgur.com/s6fMWnd.png) |
+| alexa.lua | pi:alexa | |  |
 | expand.lua | pi:expand | | ![http://i.imgur.com/HEzMGGH.png](http://i.imgur.com/HEzMGGH.png) |
 | fbvid.lua | pi:fbvid | | ![http://i.imgur.com/3JiT5eO.png](http://i.imgur.com/3JiT5eO.png) |
 | gold.lua | pi:gold | | ![http://i.imgur.com/X0Ei5yE.png](http://i.imgur.com/X0Ei5yE.png) |

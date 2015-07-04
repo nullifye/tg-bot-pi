@@ -7,6 +7,7 @@ return function(msg)
       PI: COMMANDS
       pi:$
       pi:9gag
+      pi:alexa
       pi:expand
       pi:fbvid
       pi:gold
@@ -26,6 +27,7 @@ return function(msg)
       pi:time
       pi:webshot
       pi:yt
+	* pi:bot
     * pi:boottime
     * pi:cputemp
     * pi:loadavg
