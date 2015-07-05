@@ -27,7 +27,7 @@ return function(msg)
       pi:time
       pi:webshot
       pi:yt
-	* pi:bot
+    * pi:bot
     * pi:boottime
     * pi:cputemp
     * pi:loadavg
