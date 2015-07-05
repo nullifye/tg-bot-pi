@@ -5,7 +5,7 @@ return function(msg)
   cmd = "pi:fbvid"
   if args[1]==cmd then
     if (#args == 1 or #args > 3) then
-      send_msg (target, "usage: "..cmd.." <FB-VIDEO-URL> [!]", ok_cb, false)
+      send_msg (target, "📝 "..cmd.." <FB-VIDEO-URL> [!]", ok_cb, false)
     else
       NOTFB = (string.find(args[2], "facebook.com/video.php?v=", nil, true) == nil) and 
               (string.find(args[2], "facebook.com/[%w%.]+/videos/%w+") == nil)

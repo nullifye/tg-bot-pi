@@ -2,7 +2,7 @@ return function(msg)
   cmd = "pi:quran"
   if args[1]==cmd then
     if (#args == 1 or #args > 5) then
-      send_msg (target, "usage: "..cmd.." 1..114 [<AYAT>] [my|en] [!]", ok_cb, false)
+      send_msg (target, "📝 "..cmd.." 1..114 [<AYAT>] [my|en] [!]", ok_cb, false)
     elseif surah[args[2]] == nil then
       send_msg (target, "("..cmd..") invalid SURAH", ok_cb, false)
     else

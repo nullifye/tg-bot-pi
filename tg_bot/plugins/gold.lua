@@ -2,7 +2,7 @@ return function(msg)
   cmd = "pi:gold"
   if args[1]==cmd then
     if (#args == 1 or #args > 3) then
-      send_msg (target, "usage: "..cmd.." 24h|3d|30d|6m|1y|2y|5y|10y [myr|usd]", ok_cb, false)
+      send_msg (target, "📝 "..cmd.." 24h|3d|30d|6m|1y|2y|5y|10y [myr|usd]", ok_cb, false)
       return true
     end
 
@@ -23,7 +23,7 @@ return function(msg)
     if try then
       send_photo (target, TMP_PATH.."/gold"..curr_time..".png", ok_cb, false)
     else
-      send_text (target, "("..cmd..") server take too long to respond.\ntry again", ok_cb, false)
+      send_text (target, "("..cmd..") server takes too long to respond.\ntry again", ok_cb, false)
     end
     return true
   end

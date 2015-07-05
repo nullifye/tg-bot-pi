@@ -16,7 +16,7 @@ return function(msg)
     end
 
     if cV == 'args_no_valid' then
-      outp = 'usage: '..cmd..' <VALUE> [<CURRENCY_FROM> <CURRENCY_TO>]'
+      outp = '📝 '..cmd..' <VALUE> [<CURRENCY_FROM> <CURRENCY_TO>]'
     else
       outp = exec("wget -qO- 'http://www.google.com/finance/converter?a="..cV.."&from="..cF.."&to="..cT.."' |  sed '/res/!d;s/<[^>]*>//g'")
     end 

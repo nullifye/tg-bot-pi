@@ -17,10 +17,10 @@ return function(msg)
         getvid = os.execute('curl -s "https://screenshotmachine.com/'..imglink..'" -so '..TMP_PATH..'/webshot'..curr_time..'.png')
         send_document (target, TMP_PATH.."/webshot"..curr_time..".png", ok_cb, false)
       else
-        send_text (target, "("..cmd..") server take too long to respond.\ntry again", ok_cb, false)
+        send_text (target, "("..cmd..") server takes too long to respond.\ntry again", ok_cb, false)
       end
     else
-      send_msg (target, "usage: "..cmd.." <URL>", ok_cb, false)
+      send_msg (target, "📝 "..cmd.." <URL>", ok_cb, false)
     end
     return true
   end

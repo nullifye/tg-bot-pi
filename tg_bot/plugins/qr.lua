@@ -19,10 +19,10 @@ return function(msg)
           send_photo (target, TMP_PATH.."/qr"..curr_time..".png", ok_cb, false)
         end
       else
-        send_text (target, "("..cmd..") server take too long to respond.\ntry again", ok_cb, false)
+        send_text (target, "("..cmd..") server takes too long to respond.\ntry again", ok_cb, false)
       end
     else
-      send_msg (target, "usage: "..cmd.." text|url|phone <CONTENT>", ok_cb, false)
+      send_msg (target, "📝 "..cmd.." text|url|phone <CONTENT>", ok_cb, false)
     end
     return true
   end

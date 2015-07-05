@@ -2,7 +2,7 @@ return function(msg)
   cmd = "pi:time"
   if args[1]==cmd then
     if (#args == 1 or #args > 3) then
-      send_msg (target, "usage: "..cmd.." <COUNTRY_NAME> [<CITY_NAME>]", ok_cb, false)
+      send_msg (target, "📝 "..cmd.." <COUNTRY_NAME> [<CITY_NAME>]", ok_cb, false)
     else
       if #args > 2 then
         searchq = args[2]..'/'..args[3]
@@ -17,7 +17,7 @@ return function(msg)
       if try then
         send_text (target, TMP_PATH.."/time"..curr_time..".out", ok_cb, false)
       else
-        send_text (target, "("..cmd..") server take too long to respond.\ntry again", ok_cb, false)
+        send_text (target, "("..cmd..") server takes too long to respond.\ntry again", ok_cb, false)
       end
     end
     return true

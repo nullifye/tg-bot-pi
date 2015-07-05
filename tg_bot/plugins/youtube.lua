@@ -2,7 +2,7 @@ return function(msg)
   cmd = "pi:yt"
   if args[1]==cmd then
     if (#args < 2) then
-      send_msg (target, "usage: "..cmd.." <KEYWORD1> [<KEYWORD2>] ... [+<1..20>]", ok_cb, false)
+      send_msg (target, "📝 "..cmd.." <KEYWORD1> [<KEYWORD2>] ... [+<1..20>]", ok_cb, false)
     else
       limit = 3
       if (#args > 2) then
@@ -39,7 +39,7 @@ return function(msg)
         outp = string.gsub(outp, "&amp;", "&")
         send_msg (target, outp, ok_cb, false)
       else
-        send_text (target, "("..cmd..") server take too long to respond.\ntry again", ok_cb, false)
+        send_text (target, "("..cmd..") server takes too long to respond.\ntry again", ok_cb, false)
       end
     end
     return true

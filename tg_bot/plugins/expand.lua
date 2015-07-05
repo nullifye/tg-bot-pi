@@ -2,7 +2,7 @@
   cmd = "pi:expand"
   if args[1]==cmd then
     if (#args == 1 or #args > 2) then
-      send_msg (target, "usage: "..cmd.." <SHORTENED-URL>", ok_cb, false)
+      send_msg (target, "📝 "..cmd.." <SHORTENED-URL>", ok_cb, false)
     else
       curr_time = os.time()
       try = os.execute('curl -I -s --connect-timeout '..TIMEOUT..' "'..args[2]..'" -o /dev/null -w "%{redirect_url}" > '..TMP_PATH..'/expand'..curr_time..'.out')

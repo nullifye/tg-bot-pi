@@ -13,10 +13,10 @@ return function(msg)
 
         send_text (target, TMP_PATH.."/ppos"..curr_ptt..".out", ok_cb, false)
       else
-        send_text (target, "("..cmd..") server take too long to respond.\ntry again", ok_cb, false)
+        send_text (target, "("..cmd..") server takes too long to respond.\ntry again", ok_cb, false)
       end
     else
-      send_msg (target, "usage: "..cmd.." <TRACKING-NO>", ok_cb, false)
+      send_msg (target, "📝 "..cmd.." <TRACKING-NO>", ok_cb, false)
     end
     return true
   end

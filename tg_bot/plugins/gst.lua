@@ -2,7 +2,7 @@ return function(msg)
   cmd = "pi:gst"
   if args[1]==cmd then
     if (#args ~= 3) then
-      send_msg (target, "usage: "..cmd.." incl|excl <VALUE>", ok_cb, false)
+      send_msg (target, "📝 "..cmd.." incl|excl <VALUE>", ok_cb, false)
     else
       RM = tonumber(args[3])
       

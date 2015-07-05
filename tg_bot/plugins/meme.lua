@@ -2,7 +2,7 @@ return function(msg)
   cmd = "pi:meme"
   if args[1]==cmd then
     if (#args == 1 or #args > 4) then
-      send_msg (target, "usage: "..cmd.." list\nusage: "..cmd.." <TEMPLATE> <TOP-TEXT> [<BOTTOM-TEXT>]", ok_cb, false)
+      send_msg (target, "📝 "..cmd.." list\n📝 "..cmd.." <TEMPLATE> <TOP-TEXT> [<BOTTOM-TEXT>]", ok_cb, false)
     else
       if #args == 2 then
         if args[2]=='list' then
@@ -11,7 +11,7 @@ return function(msg)
             outp=outp..key.."   "
           end
         else
-          outp = "usage: "..cmd.." list"
+          outp = "📝 "..cmd.." list"
         end
         send_msg (target, outp, ok_cb, false)
         return true
@@ -36,7 +36,7 @@ return function(msg)
       if try then
         send_photo (target, TMP_PATH.."/meme"..curr_time..".jpg", ok_cb, false)
       else
-        send_text (target, "("..cmd..") server take too long to respond.\ntry again", ok_cb, false)
+        send_text (target, "("..cmd..") server takes too long to respond.\ntry again", ok_cb, false)
       end
     end
     return true
