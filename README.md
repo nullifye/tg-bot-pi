@@ -40,6 +40,7 @@ telegram-cli -W -s <path/to/script/action.lua>
 | qr.lua | pi:qr | | ![http://i.imgur.com/auFy62H.png](http://i.imgur.com/auFy62H.png) |
 | quran.lua | pi:quran | | ![http://i.imgur.com/BCRS939.png](http://i.imgur.com/BCRS939.png) |
 | shorten.lua | pi:shorten | | ![http://i.imgur.com/7mAVLGT.png](http://i.imgur.com/7mAVLGT.png) |
+| ssm.lua | pi:ssm | |  |
 | time.lua | pi:time | | ![http://i.imgur.com/2z7M1bU.png](http://i.imgur.com/2z7M1bU.png) |
 | webshot.lua | pi:webshot | | ![http://i.imgur.com/wFsbPJp.png](http://i.imgur.com/wFsbPJp.png) |
 | youtube.lua | pi:yt | | ![http://i.imgur.com/hkXKjAq.png](http://i.imgur.com/hkXKjAq.png) |

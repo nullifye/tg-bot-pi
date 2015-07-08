@@ -24,6 +24,7 @@ return function(msg)
       pi:quran
       pi:shorten
       pi:spr
+      pi:ssm
       pi:time
       pi:webshot
       pi:yt
