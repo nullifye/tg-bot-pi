@@ -3,7 +3,7 @@ return function(msg)
   if command(msg,cmd) then
     local found = false
     while not found do
-      rand = math.random(1,787900)
+      rand = math.random(1,1047007)
       found = http_code("http://m.9gag.com/gag/"..rand, "200")
     end
 
