@@ -39,7 +39,7 @@ return function(msg)
 
               tafseer = exec('cat '..TMP_PATH..'/quran'..curr_time..'.out | egrep "<p>" | sed -e "s/<[^>]*[>]//g"')
               tafseer = string.gsub(tafseer, "&quot;", "'")
-              send_msg (target, tafseer, ok_cb, false)
+              send_msg (target, surah[args[2]].." "..args[2]..":"..args[3].."\n"..tafseer, ok_cb, false)
 
               if args[5] == "!" then
                 audioname = string.format("%03d%03d", args[2], args[3])..".mp3"

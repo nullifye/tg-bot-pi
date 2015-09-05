@@ -4,7 +4,7 @@ PITIME = os.time()
 ADMINLIST = 'YOUR-ID'
 HOME = '/home/pi/tg_bot'
 TMP_PATH = '/tmp'
-TIMEOUT = 3    --secs
+TIMEOUT = 10    --sec (before 3sec)
 
 math.randomseed(os.time())
 

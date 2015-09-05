@@ -5,7 +5,7 @@ return function(msg)
       send_msg (target, "📝 "..cmd.." incl|excl <VALUE>", ok_cb, false)
     else
       RM = tonumber(args[3])
-      
+
       if RM then
         if args[2] == 'excl' then
           GST = 0.06*RM
@@ -16,7 +16,7 @@ return function(msg)
         else
           outp = "("..cmd..") valid arg is either 'incl' (inclusive) or 'excl' (exclusive)"
         end
-      
+
         send_msg (target, outp, ok_cb, false)
       else
         send_msg (target, "("..cmd..") '"..args[3].."' is NOT a valid amount", ok_cb, false)

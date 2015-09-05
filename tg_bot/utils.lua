@@ -70,7 +70,7 @@ end
 
 -- http://unix.stackexchange.com/questions/176249/checking-urls-for-http-code-200
 function http_code(url, codes)
-  statuscode = exec('curl -I -s --connect-timeout 5 "'..url..'" -o /dev/null -w "%{http_code}"')
+  statuscode = exec('curl -I -s --connect-timeout 10 "'..url..'" -o /dev/null -w "%{http_code}"')
   return string.match(codes, statuscode) ~= nil
 end
 
