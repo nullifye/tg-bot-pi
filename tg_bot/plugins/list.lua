@@ -2,11 +2,11 @@
 return function(msg)
   cmd0 = "pi:list"
   cmd1 = "pi:help"
-  if command(msg,cmd0) or command(msg,cmd1) then
+  cmd2 = "/help"
+  if command(msg,cmd0) or command(msg,cmd1) or command(msg,cmd2) then
     outp = [[
       PI: COMMANDS
       pi:$
-      pi:9gag
       pi:alexa
       pi:expand
       pi:fbvid

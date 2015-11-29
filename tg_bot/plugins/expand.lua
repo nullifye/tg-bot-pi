@@ -1,4 +1,4 @@
-﻿return function(msg)
+return function(msg)
   cmd = "pi:expand"
   if args[1]==cmd then
     if (#args == 1 or #args > 2) then
